@@ -1,0 +1,140 @@
+<pre>
+     
+
+
+   SAISI DES RENDEZ-VOUS:
+<form action="index.php" method="POST">
+
+
+   DATE DE DEBUT: <input type="text" name="date1" class="datepicker">
+          
+   DATE DE FIN:   <input type="text" name="date2" class="datepicker">
+          
+   CATEGORIE:     <select name="cat">
+               <?php
+               include'conn.php';
+              $req = "select * FROM categorie";
+	$result = mysql_query($req);
+               //$result = mysqli_query($conn, '* FROM categorie');
+               while ($row = mysql_fetch_array($result))
+                               {
+                   
+                        echo"<option >".$row['cat_libelle']."</option>";
+                   
+                   
+               }
+               mysqli_free_result($result);
+               
+            
+               
+               ?>
+               
+           </select>
+           
+    LIBELLE:    
+                  <textarea name="lib_rdv" rows="4" cols="20">
+                          </textarea>
+    NOTE:         <input type="text" name="rdv_note" value="" />
+    HEURES DE DEBUT:<select name="Hdeb">
+               <option>8H-9H</option>
+               <option>9H-10H</option>
+               <option>10H-11H</option>
+               <option>11H-12H</option>
+               <option>12H-13H</option>
+               <option>13H-14H</option>
+               <option>14H-15H</option>
+               <option>15H-16H</option>
+               <option>16H-17H</option>
+               <option>17H-18H</option>
+               <option>18H-19H</option>
+               <option>19H-20H</option>
+           </select>
+    HEURES DE FIN:<select name="Hfin">
+               <option>8H-9H</option>
+               <option>9H-10H</option>
+               <option>10H-11H</option>
+               <option>11H-12H</option>
+               <option>12H-13H</option>
+               <option>13H-14H</option>
+               <option>14H-15H</option>
+               <option>15H-16H</option>
+               <option>16H-17H</option>
+               <option>17H-18H</option>
+               <option>18H-19H</option>
+               <option>19H-20H</option>
+           </select>
+           
+           <input type="submit" value="VALIDER" name="set_rdv" />
+           </pre>  
+</form>
+   <?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+--------------------------------------------------------------------
+<article class="col1">
+SAISI DES RENDEZ-VOUS
+<div class="tabs_cont">
+<form id="form_1" action="index.php" method="post">
+<div class="bg">
+<div class="wrapper">
+<div class="wrapper">DEBUT:<input type="text" name="date1" class="datepicker"></div>
+<div class="wrapper">FIN:<input type="text" name="date2" class="datepicker"></div>	
+CATEGORIE:     <select name="cat">
+               <?php
+               include'conn.php';
+              $req = "select * FROM categorie";
+	$result = mysql_query($req);
+               //$result = mysqli_query($conn, '* FROM categorie');
+               while ($row = mysql_fetch_array($result))
+                               {
+                   
+                        echo"<option >".$row['cat_libelle']."</option>";
+                   
+                       }
+               mysqli_free_result($result);       ?>
+          </select>
+LIBELLE:    
+ <textarea name="lib_rdv" rows="4" cols="20">
+                          </textarea>
+NOTE:         <input type="text" name="rdv_note" value="" />
+HEURES DE DEBUT:<select name="Hdeb">
+               <option>8H-9H</option>
+               <option>9H-10H</option>
+               <option>10H-11H</option>
+               <option>11H-12H</option>
+               <option>12H-13H</option>
+               <option>13H-14H</option>
+               <option>14H-15H</option>
+               <option>15H-16H</option>
+               <option>16H-17H</option>
+               <option>17H-18H</option>
+               <option>18H-19H</option>
+               <option>19H-20H</option>
+           </select>
+HEURES DE FIN:<select name="Hfin">
+ <option>8H-9H</option>
+<option>9H-10H</option>
+<option>10H-11H</option>
+<option>11H-12H</option>
+<option>12H-13H</option>
+<option>13H-14H</option>
+<option>14H-15H</option>
+<option>15H-16H</option>
+<option>16H-17H</option>
+<option>17H-18H</option>
+<option>18H-19H</option>
+<option>19H-20H</option>
+</select>
+<div class="wrapper pad_bot1">
+<a href="#" class="button" name="set_rdv"onclick="document.getElementById('form_1').submit()">VALIDER</a>
+								
+</div>
+</div>							
+</form>
+</div>
+</article>
+
